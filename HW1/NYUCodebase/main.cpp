@@ -1,3 +1,4 @@
+
 #ifdef _WINDOWS
 #include <GL/glew.h>
 #endif
@@ -21,7 +22,6 @@ GLuint LoadTexture(const char* filePath){
     unsigned char* image = stbi_load(filePath, &w, &h, &comp, STBI_rgb_alpha);
     
     if(image == NULL){
-        //std::cout << "Unable to load image\n";
         assert(false);
     }
     
@@ -37,6 +37,7 @@ GLuint LoadTexture(const char* filePath){
 
     return retTexture;
 }
+
 int main(int argc, char *argv[])
 {
     SDL_Init(SDL_INIT_VIDEO);
@@ -100,7 +101,6 @@ int main(int argc, char *argv[])
         float texCoords[] = {0.0f, 1.0f, 1.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 0.0f};
         glVertexAttribPointer(program.texCoordAttribute, 2, GL_FLOAT, false, 0, texCoords);
         glEnableVertexAttribArray(program.texCoordAttribute);
-        //glBindTexture(GL_TEXTURE_2D, DarthVader);
 
         glDrawArrays(GL_TRIANGLES, 0, 6);
         
@@ -114,7 +114,6 @@ int main(int argc, char *argv[])
         program.setModelMatrix(modelMatrix3);
         modelMatrix3.Rotate(elapsed*sinf(45)*2);
 
-        //modelMatrix3.identity();
         modelMatrix3.Translate(0.0f, 0.0f, 0.0f);
         glDrawArrays(GL_TRIANGLES, 0, 6);
 
@@ -125,8 +124,7 @@ int main(int argc, char *argv[])
         glEnable(GL_BLEND);
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         glClearColor(0.4f, 0.4f, 0.4f, 1.0f);
-        //glClear(GL_COLOR_BUFFER_BIT);
-        SDL_GL_SwapWindow(displayWindow);  //swap the buffer with the window so that we can see what we actually rendered on the screen
+        SDL_GL_SwapWindow(displayWindow);
     }
    
     
