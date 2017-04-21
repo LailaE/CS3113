@@ -21,6 +21,10 @@
 		6DEF23C21B96CC2600BCE792 /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DEF23BC1B96CC2600BCE792 /* Matrix.cpp */; };
 		6DEF23C31B96CC2600BCE792 /* ShaderProgram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6DEF23BE1B96CC2600BCE792 /* ShaderProgram.cpp */; };
 		6DEF23C41B96CC2600BCE792 /* vertex.glsl in Resources */ = {isa = PBXBuildFile; fileRef = 6DEF23C01B96CC2600BCE792 /* vertex.glsl */; };
+		AE78F6791EA98E7900563326 /* SDL2_mixer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE78F6781EA98E7900563326 /* SDL2_mixer.framework */; };
+		AE78F67B1EA9913600563326 /* hitPaddle.wav in Resources */ = {isa = PBXBuildFile; fileRef = AE78F67A1EA9913600563326 /* hitPaddle.wav */; };
+		AE78F67D1EA9966400563326 /* 9509__petenice__whoosh.wav in Resources */ = {isa = PBXBuildFile; fileRef = AE78F67C1EA9966400563326 /* 9509__petenice__whoosh.wav */; };
+		AE78F67F1EA9992700563326 /* 266747__b-lamerichs__short-loops-12-03-2015-4.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = AE78F67E1EA9992700563326 /* 266747__b-lamerichs__short-loops-12-03-2015-4.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +51,10 @@
 		6DEF23BE1B96CC2600BCE792 /* ShaderProgram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ShaderProgram.cpp; sourceTree = "<group>"; };
 		6DEF23BF1B96CC2600BCE792 /* ShaderProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderProgram.h; sourceTree = "<group>"; };
 		6DEF23C01B96CC2600BCE792 /* vertex.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vertex.glsl; sourceTree = "<group>"; };
+		AE78F6781EA98E7900563326 /* SDL2_mixer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_mixer.framework; path = ../../../../../Library/Frameworks/SDL2_mixer.framework; sourceTree = "<group>"; };
+		AE78F67A1EA9913600563326 /* hitPaddle.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = hitPaddle.wav; path = ../../../../Downloads/hitPaddle.wav; sourceTree = "<group>"; };
+		AE78F67C1EA9966400563326 /* 9509__petenice__whoosh.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; name = 9509__petenice__whoosh.wav; path = ../../../../Downloads/9509__petenice__whoosh.wav; sourceTree = "<group>"; };
+		AE78F67E1EA9992700563326 /* 266747__b-lamerichs__short-loops-12-03-2015-4.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "266747__b-lamerichs__short-loops-12-03-2015-4.mp3"; path = "../../../../Downloads/266747__b-lamerichs__short-loops-12-03-2015-4.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +63,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D5AC2D019AE6280004CB1BF /* OpenGL.framework in Frameworks */,
+				AE78F6791EA98E7900563326 /* SDL2_mixer.framework in Frameworks */,
 				6D5A86AE19AE5C710066C1FD /* Cocoa.framework in Frameworks */,
 				6D5A86E319AE5CD10066C1FD /* SDL2.framework in Frameworks */,
 				6D5AC2D219AE6A1E004CB1BF /* SDL2_image.framework in Frameworks */,
@@ -85,6 +94,7 @@
 		6D5A86AC19AE5C710066C1FD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AE78F6781EA98E7900563326 /* SDL2_mixer.framework */,
 				6D5AC2D119AE6A1E004CB1BF /* SDL2_image.framework */,
 				6D5AC2CF19AE6280004CB1BF /* OpenGL.framework */,
 				6D5A86E219AE5CD10066C1FD /* SDL2.framework */,
@@ -151,6 +161,9 @@
 				6DEF23BD1B96CC2600BCE792 /* Matrix.h */,
 				6DEF23BE1B96CC2600BCE792 /* ShaderProgram.cpp */,
 				6DEF23BF1B96CC2600BCE792 /* ShaderProgram.h */,
+				AE78F67E1EA9992700563326 /* 266747__b-lamerichs__short-loops-12-03-2015-4.mp3 */,
+				AE78F67C1EA9966400563326 /* 9509__petenice__whoosh.wav */,
+				AE78F67A1EA9913600563326 /* hitPaddle.wav */,
 				6DEF23C01B96CC2600BCE792 /* vertex.glsl */,
 				6D5A86B919AE5C710066C1FD /* main.cpp */,
 			);
@@ -211,7 +224,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D5A86B819AE5C710066C1FD /* InfoPlist.strings in Resources */,
+				AE78F67D1EA9966400563326 /* 9509__petenice__whoosh.wav in Resources */,
 				6DEF23C11B96CC2600BCE792 /* fragment.glsl in Resources */,
+				AE78F67B1EA9913600563326 /* hitPaddle.wav in Resources */,
+				AE78F67F1EA9992700563326 /* 266747__b-lamerichs__short-loops-12-03-2015-4.mp3 in Resources */,
 				6DE9D2F11BA6AB8C002D599C /* fragment_textured.glsl in Resources */,
 				6D5A86C619AE5C710066C1FD /* Images.xcassets in Resources */,
 				6D5A86BE19AE5C710066C1FD /* Credits.rtf in Resources */,

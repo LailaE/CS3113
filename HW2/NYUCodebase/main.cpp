@@ -13,8 +13,11 @@
 #else
 #define RESOURCE_FOLDER "NYUCodebase.app/Contents/Resources/"
 #endif
-
+#include </Library/Frameworks/SDL2_mixer.framework/Headers/SDL_mixer.h>
 SDL_Window* displayWindow;
+Mix_Chunk *hitPaddleSound;
+Mix_Chunk *missPaddle;
+Mix_Music *music;
 
 GLuint LoadTexture(const char* filePath){
     int w, h, comp;
@@ -58,12 +61,18 @@ struct Ball{
     Ball(float x, float y, float dx, float dy):x(x), y(y), dx(dx), dy(dy){}
 };
 
+
+
 int main(int argc, char *argv[])
 {
     SDL_Init(SDL_INIT_VIDEO);
     displayWindow = SDL_CreateWindow("Laila Esa - Pong", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 640, 360, SDL_WINDOW_OPENGL);
     SDL_GLContext context = SDL_GL_CreateContext(displayWindow);
     SDL_GL_MakeCurrent(displayWindow, context);
+    Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 4096);
+    hitPaddleSound = Mix_LoadWAV("hitPaddle.wav");
+    missPaddle = Mix_LoadWAV("9509__petenice__whoosh.wav");
+    music = Mix_LoadMUS("266747__b-lamerichs__short-loops-12-03-2015-4.mp3");
 #ifdef _WINDOWS
     glewInit();
 #endif
@@ -88,7 +97,6 @@ int main(int argc, char *argv[])
     float ticks = (float)SDL_GetTicks()/1000.0f;
     float elapsed = ticks - lastFrameTicks;
     lastFrameTicks = ticks;
-
     glUseProgram(program.programID);
     
     glEnable(GL_BLEND);
@@ -102,6 +110,7 @@ int main(int argc, char *argv[])
     bool done = false;
     bool gameOn = false;
     while (!done) {
+
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT || event.type == SDL_WINDOWEVENT_CLOSE) {
                 done = true;
@@ -156,13 +165,15 @@ int main(int argc, char *argv[])
         draw(program,ballModelMatrix, ballVertices);
         
         if(gameOn){
-            
+            Mix_PlayMusic(music, -1);
+
             //Left wins
             if(ball.x -.1>= right.left){
                 ballModelMatrix.Translate(-ball.x, -ball.y, 0.0f);
                 ball.x = 0.0f;
                 ball.y = 0.0f;
                 std::cout << "Left Wins \n";
+                Mix_PlayChannel(-1,missPaddle,0);
                 gameOn = false;
                 
             }
@@ -173,6 +184,7 @@ int main(int argc, char *argv[])
                 ball.x = 0.0f;
                 ball.y = 0.0f;
                 std::cout<< "Right Wins\n";
+                Mix_PlayChannel(-1,missPaddle,0);
                 gameOn = false;
                 
             }
@@ -182,6 +194,7 @@ int main(int argc, char *argv[])
                 ballModelMatrix.Translate(ball.dx * elapsed * BALLSPEED, ball.dy * elapsed * BALLSPEED, 0.0f);
                 ball.x += ball.dx * elapsed * BALLSPEED;
                 ball.y += ball.dy * elapsed * BALLSPEED;
+
             }
             
             //Hits a paddle
@@ -191,6 +204,7 @@ int main(int argc, char *argv[])
                 ballModelMatrix.Translate(ball.dx * elapsed *.1, ball.dy * elapsed *BALLSPEED, 0.0f);
                 ball.x += ball.dx * elapsed * BALLSPEED;
                 ball.y += ball.dy * elapsed * BALLSPEED;
+                Mix_PlayChannel(-1,hitPaddleSound,0);
             }
             else{
                 ballModelMatrix.Translate(( ball.dx *elapsed *BALLSPEED), ball.dy * elapsed * BALLSPEED, 0.0f);
